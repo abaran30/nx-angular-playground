@@ -1,6 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
+import * as x from 'my-lib-a';
+
+// TODO: This is required for `spyOn` to work using jest-preset-angular 13.1.4
+// jest.mock('my-lib-a');
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -16,9 +20,10 @@ describe('AppComponent', () => {
   });
 
   it(`should have as title 'my-app-a'`, () => {
+    jest.spyOn(x, 'getNumber').mockReturnValue(2);
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-app-a');
+    expect(app.title).toEqual(2);
   });
 
   it('should render title', () => {
