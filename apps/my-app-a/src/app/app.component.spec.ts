@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import * as x from 'my-lib-a';
 
-// TODO: This is required for `spyOn` to work using jest-preset-angular 13.1.4
+// TODO: This is required for `spyOn` to work using zone.js 0.13.1+
 // jest.mock('my-lib-a');
 
 describe('AppComponent', () => {
